@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Checkbox from './Checkbox';
+// import Checkbox from './Checkbox';
+import Note from './Note';
 import Clock from './Clock';
 
 // sample of Stateless function
@@ -22,11 +23,10 @@ class App extends Component {
         <PropText newName="WEN" />
         <PropTextV2 nickName="Sweety" />
         <Clock date={new Date()} />
-        {/* <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
 
-        <Checkbox label="Checkbox 1:" defaultStatus={true} />
+        <Note />
+
+        {/* <Checkbox label="Checkbox 1:" defaultStatus={true} /> */}
       </div>
     );
   }
