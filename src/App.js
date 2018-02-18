@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 // import Checkbox from './Checkbox';
-import Note from './Note';
+// import Note from './Note';
+import Board from './Board';
 import Clock from './Clock';
 
 // sample of Stateless function
-const PropText = (props) => <h4>{props.newName} is here in props</h4>
-const PropTextV2 = ({nickName}) => <h4>{nickName} is here in props using another syntax</h4>
+const PropText = (props) => <p>{props.newName} is here in props</p>
+const PropTextV2 = ({nickName}) => <p>{nickName} is here in props using another syntax</p>
 // const Clock = (props) => <h4>It is {props.date.toLocaleTimeString()} now.</h4>
 
 // class
@@ -23,7 +24,7 @@ class App extends Component {
         <PropTextV2 nickName="Sweety" />
         <Clock date={new Date()} />
 
-        <Note />
+        <Board />
 
         {/* <Checkbox label="Checkbox 1:" defaultStatus={true} /> */}
       </div>

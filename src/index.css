@@ -4,6 +4,24 @@ body {
   font-family: sans-serif;
 }
 
+#root{
+  height: 100vh;
+  width: 100vw;
+}
+/*--------- Style for Borad(Notes inside) Component ---------*/
+.board{
+  width: 100%;
+  height: 100%;
+  background: #FDE95C;
+  padding: .6rem;
+  display: flex;
+}
+.board .note{
+  width: 8rem;
+  height: 8rem;
+  margin: .5rem;
+  padding: .4rem;
+}
 /*--------- Style for Note Component ---------*/
 .note-container{
   display: flex;
@@ -18,9 +36,13 @@ body {
   position: relative;
 }
 .note .buttons{
+  visibility: hidden;
   position: absolute;
   right: .6rem;
   bottom: .6rem;
+}
+.note:hover .buttons{
+  visibility: visible;
 }
 .note .buttons button{
   font-size: 1.2rem;

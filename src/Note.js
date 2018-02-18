@@ -9,8 +9,7 @@ class Note extends Component {
   constructor(props){
     super(props)
     this.state ={
-      editing: false,
-      text: "My Note"
+      editing: false
     }
 
     // interactive function
@@ -29,13 +28,19 @@ class Note extends Component {
     })
   }
 
-  save(){
-    // console.log(`Save Note: ${this._newText.value}`);
+  save(e){
+    // this.setState({
+    //   editing: false,
+    //   text: this._newText.value
+    // })
+    e.preventDefault();
+    // call update(newText, i) from Board
+    this.props.onChange(this._newText.value, this.props.id);
     this.setState({
-      editing: false,
-      text: this._newText.value
-    })
+      editing: false
+    });
   }
+
   remove(){
     console.log("Edit Note");
   }
@@ -44,25 +49,26 @@ class Note extends Component {
     return(
       <div className="note-container">
         <div className="note">
-          <form>
+          <form onSubmit={this.save}>
             <textarea ref={ input =>  this._newText = input } />
+            <span className="buttons">
+              {/* <button onClick={this.save} id="edit">
+                  <FaFloppyO />
+              </button> */}
+              <button>   <FaFloppyO /> </button>
+            </span>
           </form>
-          <span className="buttons">
-            <button onClick={this.save} id="edit">
-                <FaFloppyO />
-            </button>
-          </span>
         </div>
       </div>
     )
   }
-
+  // <p>{this.state.text}</p>
   renderDisplay() {
     return (
-      <div className="note-container">
         <div className="note">
           <span>
-            <p>{this.state.text}</p>
+            {/* <p>{this.props.children}</p> */}
+            <p>{this.props.children}</p>
           </span>
           <span className="buttons">
             <button onClick={this.edit} id="edit">
@@ -73,7 +79,6 @@ class Note extends Component {
             </button>
           </span>
         </div>
-      </div>
     );
   }
 
