@@ -5,11 +5,15 @@ import FaFloppyO from 'react-icons/lib/fa/floppy-o';
 // If you are not using es6 compiler like babel or rollup.js, it's possible to include icons from the compiled folder ./lib.
 
 class Note extends Component {
+
   constructor(props){
     super(props)
     this.state ={
-      editing: false
+      editing: false,
+      text: "My Note"
     }
+
+    // interactive function
     this.edit = this.edit.bind(this);
     this.save = this.save.bind(this);
     this.remove = this.remove.bind(this);
@@ -19,15 +23,17 @@ class Note extends Component {
 
   edit(){
     console.log(`Edit - state.editing: ${this.state.editing}`);
+    // this._newText.focus();
     this.setState({
       editing: true
     })
   }
 
   save(){
-    console.log("Save Note");
+    // console.log(`Save Note: ${this._newText.value}`);
     this.setState({
-      editing: false
+      editing: false,
+      text: this._newText.value
     })
   }
   remove(){
@@ -39,7 +45,7 @@ class Note extends Component {
       <div className="note-container">
         <div className="note">
           <form>
-            <textarea />
+            <textarea ref={ input =>  this._newText = input } />
           </form>
           <span className="buttons">
             <button onClick={this.save} id="edit">
@@ -56,7 +62,7 @@ class Note extends Component {
       <div className="note-container">
         <div className="note">
           <span>
-            <p>My Note</p>
+            <p>{this.state.text}</p>
           </span>
           <span className="buttons">
             <button onClick={this.edit} id="edit">
