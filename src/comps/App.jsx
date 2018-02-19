@@ -7,7 +7,7 @@ import Board from './Board';
 import Clock from './Clock';
 
 // sample of Stateless function
-const PropText = props => <p>{ props.newName } is here in props</p>;
+const PropText = (props) => <p>{ props.newName } is here in props</p>;
 const PropTextV2 = ({ nickName }) => <p>{ nickName } is here in props using another syntax</p>;
 // const Clock = (props) => <h4>It is {props.date.toLocaleTimeString()} now.</h4>
 

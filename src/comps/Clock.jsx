@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './Clock.css';
+// import PropTypes from 'prop-types';
 
 class Clock extends Component {
   constructor(props) {
@@ -36,5 +36,9 @@ class Clock extends Component {
     );
   }
 }
+
+// Clock.propTypes = {
+//   date: PropTypes.object.isRequired
+// };
 
 export default Clock;
