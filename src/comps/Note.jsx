@@ -20,6 +20,7 @@ class Note extends Component {
     this.renderDisplay = this.renderDisplay.bind(this);
   }
 
+  // Display Mode: Handle "Edit" & "Remove" button
   edit() {
     console.log(`Edit - state.editing: ${this.state.editing}`);
     // this._newText.focus();
@@ -28,22 +29,18 @@ class Note extends Component {
     });
   }
 
+  remove() {
+    this.props.onRemove(this.props.id);
+  }
+
   // Editing Mode: Handle "save" button
   save(e) {
-    // this.setState({
-    //   editing: false,
-    //   text: this._newText.value
-    // })
     e.preventDefault();
     // call update(newText, i) from Board
     this.props.onChange(this._newText.value, this.props.id);
     this.setState({
       editing: false
     });
-  }
-
-  remove() {
-    this.props.onRemove(this.props.id);
   }
 
   // note in edit mode(save button)

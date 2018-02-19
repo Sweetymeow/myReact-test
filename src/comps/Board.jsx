@@ -10,7 +10,7 @@ class Board extends Component {
     };
     this.eachNote = this.eachNote.bind(this);
     this.update = this.update.bind(this);
-    this.remove = this.remove.bind(this);
+    this.removeNote = this.removeNote.bind(this);
   }
 
   // 作为props传递给子组件，用来接受子组件传递过来的newText
@@ -26,18 +26,20 @@ class Board extends Component {
   }
 
   // Handle remove note from notes
-  remove(id) {
+  removeNote(id) {
+    // Receive 'id' from sub-Component & change data of in state
     this.setState((prevState) => ({
       notes: prevState.notes.filter((note) => note.id !== id )
     }));
   }
 
+  // Create instance of sub-Component based on state.notes
   eachNote(note, i) {
     return (<Note key={i}
                   index={i}
                   id={note.id}
                   onChange={this.update}
-                  onRemove={this.remove}>
+                  onRemove={this.removeNote}>
                   {note.text}
             </Note>);
   }
