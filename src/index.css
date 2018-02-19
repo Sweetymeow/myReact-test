@@ -8,6 +8,15 @@ body {
   height: 100vh;
   width: 100vw;
 }
+#root .App{
+  display: flex;
+  flex-flow: column;
+}
+
+#root .App h4, #root .App p{
+  margin: .4rem 0;
+}
+
 /*--------- Style for Borad(Notes inside) Component ---------*/
 .board{
   width: 100%;
@@ -15,12 +24,31 @@ body {
   background: #FDE95C;
   padding: .6rem;
   display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
 }
 .board .note{
   width: 8rem;
   height: 8rem;
   margin: .5rem;
   padding: .4rem;
+  overflow-y: scroll;
+}
+
+.addButton{
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  color: white;
+  background: orange;
+}
+.addButton svg{
+  font-size: 1.2rem;
 }
 /*--------- Style for Note Component ---------*/
 .note-container{

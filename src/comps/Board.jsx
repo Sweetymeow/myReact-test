@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FaPlus from 'react-icons/lib/fa/plus';
 import Note from './Note';
 import noteData from '../data/notes.json';
 
@@ -11,6 +12,7 @@ class Board extends Component {
     this.eachNote = this.eachNote.bind(this);
     this.update = this.update.bind(this);
     this.removeNote = this.removeNote.bind(this);
+    this.addNote = this.addNote.bind(this);
   }
 
   // 作为props传递给子组件，用来接受子组件传递过来的newText
@@ -25,12 +27,29 @@ class Board extends Component {
     });
   }
 
+  // Handle add note from notes
+  addNote(newText) {
+    this.setState((prevState) => {
+      const prevNotes = prevState.notes;
+      console.log(prevNotes);
+      return {
+        notes: [...prevState.notes,
+          {
+            id: prevNotes[prevNotes.length - 1].id + 1 || 0,
+            text: newText
+          }]
+      };
+    });
+  }
+
   // Handle remove note from notes
   removeNote(id) {
     // Receive 'id' from sub-Component & change data of in state
-    this.setState((prevState) => ({
-      notes: prevState.notes.filter((note) => note.id !== id )
-    }));
+    this.setState((prevState) => {
+      return {
+        notes: prevState.notes.filter((note) => note.id !== id)
+      };
+    });
   }
 
   // Create instance of sub-Component based on state.notes
@@ -45,7 +64,10 @@ class Board extends Component {
   }
 
   render() {
-    return (<div className="board">{this.state.notes.map(this.eachNote)}</div>);
+    return (<div className="board">
+              {this.state.notes.map(this.eachNote)}
+              <button className="addButton" onClick={this.addNote.bind(null, 'New Note')}><FaPlus /></button>
+            </div>);
   }
 }
 
