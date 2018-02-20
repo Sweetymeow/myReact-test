@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FaPlus from 'react-icons/lib/fa/plus';
 import Note from './Note';
 import noteData from '../../data/notes.json';
@@ -16,9 +17,12 @@ class Board extends Component {
   }
   // happen before render()
   componentWillMount() {
-    let self = this;
-    if(this.props.count){
-      fetch(``)
+    // let self = this;
+    if (this.props.count) {
+      fetch(`https://baconipsum.com/api/?type=all-meat&sentences=${this.props.count}`)
+        .then(response => response.json())
+        .then(json => json[0].split('. ')
+          .forEach(sentence => this.addNote(sentence.substring(0, 25))));
     }
   }
 
@@ -86,5 +90,8 @@ class Board extends Component {
   // 上面的写法必须用bind，不然会进入不限循环
 }
 
+Board.propTypes = {
+  count: PropTypes.number
+};
 
 export default Board;

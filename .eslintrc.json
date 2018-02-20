@@ -5,14 +5,25 @@
     "jsx-a11y",
     "import"
   ],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "fetch": true
+  },
   "rules": {
     "comma-dangle": ["error", "never"],
     "arrow-body-style": ["warn", "always"],
     "no-underscore-dangle": ["off"],
     "arrow-parens": ["off", "as-needed"],
     "arrow-body-style": ["warn", "as-needed"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/require-default-props": [0, { "forbidDefaultForRequired": false  }],
+    "no-undef": ["warn"],
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
+    }],
+    "react/require-default-props": [0, {
+      "forbidDefaultForRequired": false
+    }],
     "react/no-unused-prop-types": [1],
     "react/no-unused-state": [1],
     "react/jsx-indent": [0],

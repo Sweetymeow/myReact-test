@@ -35,7 +35,7 @@ class App extends Component {
         <PropTextV2 nickName="Sweety" />
         <Clock date={new Date()} />
 
-        <Board />
+        <Board count={10} />
 
         {/* <Checkbox label="Checkbox 1:" defaultStatus={true} /> */}
       </div>
@@ -46,6 +46,12 @@ class App extends Component {
 App.propTypes = {
   myName: PropTypes.string,
   myAge: PropTypes.number
+};
+PropText.propTypes = {
+  newName: PropTypes.string
+};
+PropTextV2.propTypes = {
+  nickName: PropTypes.string
 };
 
 export default App;
