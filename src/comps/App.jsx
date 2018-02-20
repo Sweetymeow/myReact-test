@@ -36,5 +36,11 @@ App.propTypes = {
   myName: PropTypes.string,
   myAge: PropTypes.number
 };
+PropText.propTypes = {
+  newName: PropTypes.string
+};
+PropTextV2.propTypes = {
+  nickName: PropTypes.string
+};
 
 export default App;
