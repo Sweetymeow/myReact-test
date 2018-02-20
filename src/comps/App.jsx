@@ -24,7 +24,7 @@ class App extends Component {
         <PropTextV2 nickName="Sweety" />
         <Clock date={new Date()} />
 
-        <Board />
+        <Board count={10} />
 
         {/* <Checkbox label="Checkbox 1:" defaultStatus={true} /> */}
       </div>

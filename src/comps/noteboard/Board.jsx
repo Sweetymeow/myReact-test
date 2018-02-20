@@ -15,10 +15,13 @@ class Board extends Component {
     this.addNote = this.addNote.bind(this);
   }
   // happen before render()
-  componentWillMount(){
+  componentWillMount() {
     let self = this;
-    if(this.props.count){
-      fetch(``)
+    if(this.props.count) {
+      fetch(`https://baconipsum.com/api/?type=all-meat&sentences=${this.props.count}`)
+        .then(response => response.json())
+        .then(json => json[0].split('. ').forEach(sentence => self.addNote(sentence.substring(0, 25)))
+        );
     }
   }
 
