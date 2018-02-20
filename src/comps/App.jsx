@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import firebase from 'firebase';
 import logo from './logo.svg';
 import './App.css';
 // import Checkbox from './Checkbox';
@@ -13,6 +14,16 @@ const PropTextV2 = ({ nickName }) => <p>{ nickName } is here in props using anot
 
 // class
 class App extends Component {
+  componentWillMount() { // load data before UI render
+    firebase.initializeApp({
+      apiKey: 'AIzaSyDx2SbTs_Y4-wcJIDCdOmXp3AE5EG26Rws',
+      authDomain: 'react-product-chart.firebaseapp.com',
+      databaseURL: 'https://react-product-chart.firebaseio.com',
+      projectId: 'react-product-chart',
+      storageBucket: 'react-product-chart.appspot.com',
+      messagingSenderId: '594004075004'
+    });
+  }
   render() {
     return (
       <div className="App">
