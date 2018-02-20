@@ -15,7 +15,7 @@ class Board extends Component {
     this.addNote = this.addNote.bind(this);
   }
   // happen before render()
-  componentWillMount(){
+  componentWillMount() {
     let self = this;
     if(this.props.count){
       fetch(``)

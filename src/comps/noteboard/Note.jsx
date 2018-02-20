@@ -49,7 +49,7 @@ class Note extends Component {
     <div className="note-container">
       <div className="note">
         <form onSubmit={this.save}>
-          <textarea ref={ (input) => this._newText = input } />
+          <textarea ref={(input) => { this._newText = input; }} />
           <span className="buttons">
             {/* <button onClick={this.save} id="edit"><FaFloppyO /></button> */}
             <button> <FaFloppyO /></button>
