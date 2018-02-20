@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FaPlus from 'react-icons/lib/fa/plus';
 import Note from './Note';
-import noteData from '../data/notes.json';
+import noteData from '../../data/notes.json';
 
 class Board extends Component {
   constructor(props) {
@@ -13,6 +13,13 @@ class Board extends Component {
     this.update = this.update.bind(this);
     this.removeNote = this.removeNote.bind(this);
     this.addNote = this.addNote.bind(this);
+  }
+  // happen before render()
+  componentWillMount(){
+    let self = this;
+    if(this.props.count){
+      fetch(``)
+    }
   }
 
   // 作为props传递给子组件，用来接受子组件传递过来的newText
@@ -31,7 +38,7 @@ class Board extends Component {
   addNote(newText) {
     this.setState((prevState) => {
       const prevNotes = prevState.notes;
-      console.log(prevNotes);
+      console.log(`Add new note: ${newText}`);
       return {
         notes: [...prevState.notes,
           {
@@ -63,12 +70,21 @@ class Board extends Component {
             </Note>);
   }
 
+
+  // A .bind() call or arrow function in a JSX prop will
+  // create a brand new function on every single render.
   render() {
     return (<div className="board">
               {this.state.notes.map(this.eachNote)}
-              <button className="addButton" onClick={this.addNote.bind(null, 'New Note')}><FaPlus /></button>
+              <button className="addButton"
+                  onClick={(e) => this.addNote('New Note', e)}
+                  id="addButton"><FaPlus />
+              </button>
             </div>);
   }
+  // onClick={this.addNote.bind(null, 'New Note')}
+  // 上面的写法必须用bind，不然会进入不限循环
 }
+
 
 export default Board;

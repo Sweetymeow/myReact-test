@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
 // import Checkbox from './Checkbox';
-// import Note from './Note';
-import Board from './Board';
+import Board from './noteboard/Board';
 import Clock from './Clock';
 
 // sample of Stateless function
@@ -31,5 +31,10 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  myName: PropTypes.string,
+  myAge: PropTypes.number
+};
 
 export default App;

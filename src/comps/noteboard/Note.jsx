@@ -79,7 +79,7 @@ class Note extends Component {
 
 Note.propTypes = {
   children: PropTypes.string,
-  index: PropTypes.number,
+  // index: PropTypes.number,
   id: PropTypes.number,
   onChange: PropTypes.func,
   onRemove: PropTypes.func
