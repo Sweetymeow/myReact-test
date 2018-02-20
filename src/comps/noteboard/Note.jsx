@@ -9,7 +9,8 @@ class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editing: false
+      editing: false,
+      randomStyle: true
     };
 
     // interactive function
@@ -18,6 +19,23 @@ class Note extends Component {
     this.remove = this.remove.bind(this);
     this.renderForm = this.renderForm.bind(this);
     this.renderDisplay = this.renderDisplay.bind(this);
+    // calculate function
+    this.randomBetween = this.randomBetween.bind(this);
+  }
+
+  // lifecycle function
+  componentWillMount() {
+    this.style = {
+      right: this.randomBetween(0, window.innerWidth - 150, 'px'),
+      top: this.randomBetween(0, window.innerHeight - 150, 'px'),
+      transform: `rotate(${this.randomBetween(-25, 25, 'deg')})`,
+      position: 'absolute'
+    };
+  }
+
+  // Generate random number
+  randomBetween(x, y, s){
+    return x + Math.ceil(Math.random() * (y-x)) + s;
   }
 
   // Display Mode: Handle "Edit" & "Remove" button
@@ -46,7 +64,7 @@ class Note extends Component {
   // note in edit mode(save button)
   renderForm() {
     return (
-    <div className="note-container">
+    <div className="note-container" style={this.state.randomStyle ? this.style : {}}>
       <div className="note">
         <form onSubmit={this.save}>
           <textarea ref={ (input) => this._newText = input } />
@@ -61,7 +79,7 @@ class Note extends Component {
 
   // note in display mode(edit & remove button)
   renderDisplay() {
-    return (<div className="note">
+    return (<div className="note" style={this.state.randomStyle ? this.style : {}}>
       <span>
         <p>{this.props.children}</p>
       </span>
