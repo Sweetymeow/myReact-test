@@ -16,8 +16,11 @@
     "arrow-body-style": ["warn", "always"],
     "no-underscore-dangle": ["off"],
     "arrow-parens": ["off", "as-needed"],
+    "max-len": ["off"],
     "arrow-body-style": ["warn", "as-needed"],
     "no-undef": ["warn"],
+    "semi": ["warn"],
+    "jsx-quotes": ["warn"],
     "react/jsx-filename-extension": [1, {
       "extensions": [".js", ".jsx"]
     }],

@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import logo from './logo.svg';
 import './App.css';
 // import Checkbox from './Checkbox';
+import MenuHeader from './semanticUI/MenuHeader';
 import Board from './noteboard/Board';
 import Clock from './Clock';
 
@@ -27,9 +28,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <MenuHeader />
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        </header>
+        </header> */}
         <h3>I'm {this.props.myName}, and {this.props.myAge}-years-old</h3>
         <PropText newName="WEN" />
         <PropTextV2 nickName="Sweety" />
