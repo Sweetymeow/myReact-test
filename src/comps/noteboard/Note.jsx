@@ -34,8 +34,8 @@ class Note extends Component {
   }
 
   // Generate random number
-  randomBetween(x, y, s){
-    return x + Math.ceil(Math.random() * (y-x)) + s;
+  randomBetween(x, y, s) {
+    return x + Math.ceil(Math.random() * (y - x)) + s;
   }
 
   // Display Mode: Handle "Edit" & "Remove" button
@@ -79,7 +79,8 @@ class Note extends Component {
 
   // note in display mode(edit & remove button)
   renderDisplay() {
-    return (<div className="note" style={this.state.randomStyle ? this.style : {}}>
+    return (
+    <div className="note" style={this.state.randomStyle ? this.style : {}}>
       <span>
         <p>{this.props.children}</p>
       </span>

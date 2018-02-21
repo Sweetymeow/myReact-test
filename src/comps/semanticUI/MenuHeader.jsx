@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react'; // Segment
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class MenuHeader extends Component {
   constructor(props) {
@@ -23,9 +24,13 @@ class MenuHeader extends Component {
     const { activeItem } = this.state;
 
     return (
-      <div>
+      <Router>
         <Menu pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item name='home'
+            as={Link}
+            to='/home'
+            active={activeItem === 'home'}
+            onClick={this.handleItemClick} />
           <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
           <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
           <Menu.Menu position='right'>
@@ -36,7 +41,7 @@ class MenuHeader extends Component {
         {/* <Segment>
           <img src='/assets/images/wireframe/media-paragraph.png' />
         </Segment> */}
-      </div>
+      </Router>
     );
   }
 }

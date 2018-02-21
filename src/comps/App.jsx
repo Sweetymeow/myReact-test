@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import firebase from 'firebase';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import logo from './logo.svg';
 import './App.css';
 // import Checkbox from './Checkbox';
 import MenuHeader from './semanticUI/MenuHeader';
@@ -32,7 +33,7 @@ class App extends Component {
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header> */}
-        <h3>I'm {this.props.myName}, and {this.props.myAge}-years-old</h3>
+        <h3>I&apos;m {this.props.myName}, and {this.props.myAge}-years-old</h3>
         <PropText newName="WEN" />
         <PropTextV2 nickName="Sweety" />
         <Clock date={new Date()} />
