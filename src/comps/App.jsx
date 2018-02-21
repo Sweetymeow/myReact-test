@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import firebase from 'firebase';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
-// import Checkbox from './Checkbox';
-import MenuHeader from './semanticUI/MenuHeader';
 import Board from './noteboard/Board';
-import Clock from './Clock';
+import MenuHeader from './semanticUI/MenuHeader';
+import TestComp from './tutorial/TestComp';
 
-// sample of Stateless function
-const PropText = (props) => <p>{ props.newName } is here in props</p>;
-const PropTextV2 = ({ nickName }) => <p>{ nickName } is here in props using another syntax</p>;
 // const Clock = (props) => <h4>It is {props.date.toLocaleTimeString()} now.</h4>
 
 // class
@@ -33,28 +28,13 @@ class App extends Component {
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header> */}
-        <h3>I&apos;m {this.props.myName}, and {this.props.myAge}-years-old</h3>
-        <PropText newName="WEN" />
-        <PropTextV2 nickName="Sweety" />
-        <Clock date={new Date()} />
+        {/* <Route path="/" component=""></Route> */}
+        <TestComp myName="Wendy" myAge={28} />
 
-        <Board count={10} />
-
-        {/* <Checkbox label="Checkbox 1:" defaultStatus={true} /> */}
+        {/* <Board count={10} /> */}
       </div>
     );
   }
 }
-
-App.propTypes = {
-  myName: PropTypes.string,
-  myAge: PropTypes.number
-};
-PropText.propTypes = {
-  newName: PropTypes.string
-};
-PropTextV2.propTypes = {
-  nickName: PropTypes.string
-};
 
 export default App;
