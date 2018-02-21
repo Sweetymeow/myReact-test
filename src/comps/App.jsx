@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
+import logo from './logo.svg';
 import './App.css';
 import Board from './noteboard/Board';
 import MenuHeader from './semanticUI/MenuHeader';
 import TestComp from './tutorial/TestComp';
 
 // const Clock = (props) => <h4>It is {props.date.toLocaleTimeString()} now.</h4>
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+);
 
 // class
 class App extends Component {
@@ -23,16 +29,24 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <MenuHeader />
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header> */}
-        {/* <Route path="/" component=""></Route> */}
-        <TestComp myName="Wendy" myAge={28} />
-
-        {/* <Board count={10} /> */}
-      </div>
+      <Router>
+        <div className="App">
+          {/* <MenuHeader /> */}
+          <header className="App-header">
+            <Link to="/">
+              <img src={logo} className="App-logo" alt="logo" />
+            </Link>
+            <span className="flex-spacer" />
+            <Button className="App-Header-Btn" content="Test" basic inverted color="blue" as={Link} to="/test" />
+            <Button className="App-Header-Btn" content="noteBoard" basic inverted color="blue" as={Link} to="/noteBoard" />
+          </header>
+          <Route exact path="/" component={Home} />
+          <Route path="/test" render={() => (<TestComp myName="Wendy" myAge={28} />)} />
+          <Route path="/noteBoard" render={() => (<Board count={10} />)} />
+          {/* <TestComp myName="Wendy" myAge={28} /> */}
+          {/* <Board count={10} /> */}
+        </div>
+      </Router>
     );
   }
 }
