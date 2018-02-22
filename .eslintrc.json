@@ -17,6 +17,7 @@
     "no-underscore-dangle": ["off"],
     "arrow-parens": ["off", "as-needed"],
     "max-len": ["off"],
+    "quotes": ["off"],
     "arrow-body-style": ["warn", "as-needed"],
     "no-undef": ["warn"],
     "semi": ["warn"],
