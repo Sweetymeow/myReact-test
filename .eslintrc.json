@@ -22,6 +22,7 @@
     "no-undef": ["warn"],
     "semi": ["warn"],
     "jsx-quotes": ["warn"],
+    "space-in-parens": ["warn", "always"],
     "react/jsx-filename-extension": [1, {
       "extensions": [".js", ".jsx"]
     }],
@@ -35,10 +36,16 @@
     "react/jsx-first-prop-new-line": [0],
     "react/jsx-closing-bracket-location": [0],
     "react/jsx-indent-props": [0],
-    "jsx-a11y/anchor-is-valid": [ "warn", {
-        "components": [ "Link" ],
-        "specialLink": [ "hrefLeft", "hrefRight" ],
-        "aspects": [ "noHref", "invalidHref", "preferButton" ]
-      }]
-    }
+    "react/jsx-tag-spacing": [1, {
+      "closingSlash": "never",
+      "beforeSelfClosing": "allow",
+      "afterOpening": "allow-multiline",
+      "beforeClosing": "allow"
+    }],
+    "jsx-a11y/anchor-is-valid": ["warn", {
+      "components": ["Link"],
+      "specialLink": ["hrefLeft", "hrefRight"],
+      "aspects": ["noHref", "invalidHref", "preferButton"]
+    }]
+  }
 }

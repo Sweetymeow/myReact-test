@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Menu, Button } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import logo from './logo.svg';
 import './App.css';
 import Board from './noteboard/Board';
@@ -49,18 +49,21 @@ class App extends Component {
       <Router>
         <div className="App">
           <Menu pointing secondary>
-            <Menu.Item name='Home' as={Link} to='/' />
-            <Menu.Item name='Test' as={Link} to='/test' />
-            <Menu.Item name='Note Board' as={Link} to='/noteBoard' />
+            <Menu.Item>
+              <img src={logo} className="App-logo" alt="logo" />
+            </Menu.Item>
+            <Menu.Item name="Home" as={Link} to="/" />
+            <Menu.Item name="Test" as={Link} to="/test" />
+            <Menu.Item name="Note Board" as={Link} to="/noteBoard" />
             {/* <Menu.Item name='NoteBoard' active={activeItem === 'noteBoard'} onClick={this.handleItemClick} /> */}
-            <Menu.Menu position='right'>
-              <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
+            <Menu.Menu position="right">
+              <Menu.Item name="logout" active={activeItem === 'logout'} onClick={this.handleItemClick} />
             </Menu.Menu>
           </Menu>
 
           <Route exact path="/" component={Home} />
-          <Route path="/test" render={() => (<TestComp myName="Wendy" myAge={28} />)} />
-          <Route path="/noteBoard" render={() => (<Board count={10} />)} />
+          <Route path="/test" render={() => ( <TestComp myName="Wendy" myAge={28} /> )} />
+          <Route path="/noteBoard" render={() => ( <Board count={10} /> )} />
         </div>
       </Router>
     );
