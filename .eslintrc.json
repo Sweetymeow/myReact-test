@@ -21,6 +21,7 @@
     "arrow-body-style": ["warn", "as-needed"],
     "no-undef": ["warn"],
     "semi": ["warn"],
+    "class-methods-use-this": ["warn"],
     "jsx-quotes": ["warn"],
     "space-in-parens": ["warn", "always"],
     "react/jsx-filename-extension": [1, {
@@ -41,6 +42,9 @@
       "beforeSelfClosing": "allow",
       "afterOpening": "allow-multiline",
       "beforeClosing": "allow"
+    }],
+    "object-curly-newline": ["warn", {
+        "ObjectExpression": "never"
     }],
     "jsx-a11y/anchor-is-valid": ["warn", {
       "components": ["Link"],

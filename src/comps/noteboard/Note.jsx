@@ -23,6 +23,11 @@ class Note extends Component {
     this.randomBetween = this.randomBetween.bind(this);
   }
 
+  // Generate random number
+  randomBetween(x, y, s) {
+    return x + Math.ceil(Math.random() * (y - x)) + s;
+  }
+
   // lifecycle function
   componentWillMount() {
     this.style = {
@@ -31,11 +36,6 @@ class Note extends Component {
       transform: `rotate(${this.randomBetween(-25, 25, 'deg')})`,
       position: 'absolute'
     };
-  }
-
-  // Generate random number
-  randomBetween(x, y, s) {
-    return x + Math.ceil(Math.random() * (y - x)) + s;
   }
 
   // Display Mode: Handle "Edit" & "Remove" button

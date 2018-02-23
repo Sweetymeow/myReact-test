@@ -6,20 +6,22 @@ import logo from './logo.svg';
 import './App.css';
 import Board from './noteboard/Board';
 import TestComp from './tutorial/TestComp';
+import ChartSamples from './tutorial/ChartSamples';
 
 // const Clock = (props) => <h4>It is {props.date.toLocaleTimeString()} now.</h4>
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
+// const Home = () => (
+//   <div>
+//     <h2>Home</h2>
+//   </div>
+// );
 
 // class
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeItem: '/'
+      activeItem: '/',
+      feed: null
     };
     this.handleItemClick = this.handleItemClick.bind(this);
   }
@@ -33,6 +35,13 @@ class App extends Component {
       storageBucket: 'react-product-chart.appspot.com',
       messagingSenderId: '594004075004'
     });
+    firebase.database()
+      .ref(`/`) // ref() canuse to pass user related info
+      .on('value', snapshot => {
+        this.setState({
+          feed: snapshot.val()
+        })
+      });
   }
 
   handleItemClick(e, { name }) {
@@ -45,6 +54,7 @@ class App extends Component {
 
   render() {
     const { activeItem } = this.state;
+    console.log(this.state.feed);
     return (
       <Router>
         <div className="App">
@@ -54,6 +64,7 @@ class App extends Component {
             </Menu.Item>
             <Menu.Item name="Home" as={Link} to="/" />
             <Menu.Item name="Test" as={Link} to="/test" />
+            <Menu.Item name="Form" as={Link} to="/form" />
             <Menu.Item name="Note Board" as={Link} to="/noteBoard" />
             {/* <Menu.Item name='NoteBoard' active={activeItem === 'noteBoard'} onClick={this.handleItemClick} /> */}
             <Menu.Menu position="right">
@@ -61,8 +72,9 @@ class App extends Component {
             </Menu.Menu>
           </Menu>
 
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={ChartSamples} />
           <Route path="/test" render={() => ( <TestComp myName="Wendy" myAge={28} /> )} />
+          <Route path="/form" render={() => ( <TestComp myName="Wendy" myAge={28} /> )} />
           <Route path="/noteBoard" render={() => ( <Board count={10} /> )} />
         </div>
       </Router>
