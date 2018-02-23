@@ -7,6 +7,7 @@ import './App.css';
 import Board from './noteboard/Board';
 import TestComp from './tutorial/TestComp';
 import ChartSamples from './tutorial/ChartSamples';
+import ProductSalesTable from './semanticUI/ProductSalesTable';
 
 // const Clock = (props) => <h4>It is {props.date.toLocaleTimeString()} now.</h4>
 // const Home = () => (
@@ -74,7 +75,7 @@ class App extends Component {
 
           <Route exact path="/" component={ChartSamples} />
           <Route path="/test" render={() => ( <TestComp myName="Wendy" myAge={28} /> )} />
-          <Route path="/form" render={() => ( <TestComp myName="Wendy" myAge={28} /> )} />
+          <Route path="/form" render={() => ( <ProductSalesTable salesData={this.state.feed} /> )} />
           <Route path="/noteBoard" render={() => ( <Board count={10} /> )} />
         </div>
       </Router>
