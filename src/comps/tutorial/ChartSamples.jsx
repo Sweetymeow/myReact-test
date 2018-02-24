@@ -76,8 +76,8 @@ class ChartSamples extends React.Component {
           height={this.state.windowHeight}
           data={this.state.data_s1}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-        <Line type="monotone" dataKey="uv" stroke="#039BE5" strokeOpacity={opacity.uv} activeDot={{ r: 6 }} />
-        <Line type="monotone" dataKey="pv" stroke="#FBC02D" strokeOpacity={opacity.pv} />
+        <Line type="linear" dataKey="uv" stroke="#039BE5" strokeOpacity={opacity.uv} activeDot={{ r: 6 }} />
+        <Line type="linear" dataKey="pv" stroke="#FBC02D" strokeOpacity={opacity.pv} />
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
         <XAxis dataKey="name" />
         <YAxis />
@@ -86,7 +86,10 @@ class ChartSamples extends React.Component {
       </LineChart>
       {/* Chart - 2 */}
       <h3>Composed Chart Sample</h3>
-      <ComposedChart width={730} height={250} data={this.state.data_s2}>
+      <ComposedChart
+        width={this.state.windowWidth}
+        height={this.state.windowHeight}
+        data={this.state.data_s2}>
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />

@@ -37,8 +37,4 @@ class Clock extends Component {
   }
 }
 
-// Clock.propTypes = {
-//   date: PropTypes.object.isRequired
-// };
-
 export default Clock;
